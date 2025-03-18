@@ -5,13 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nishant Rathi - 3D Lighting Artist</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
             background-color: #121212;
             color: #ffffff;
             font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
             text-align: center;
+            overflow-x: hidden;
         }
         header {
             position: fixed;
@@ -26,9 +32,9 @@
             z-index: 1000;
         }
         nav {
-            margin-top: 70px;
-            background-color: transparent;
-            padding: 10px;
+            position: fixed;
+            top: 20px;
+            right: 20px;
         }
         nav a {
             color: #ffffff;
@@ -40,27 +46,33 @@
         nav a:hover {
             color: #1e90ff;
         }
-        .portfolio {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 80px 20px;
+        .carousel {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+            margin-top: 50px;
         }
-        .portfolio img {
+        .carousel img {
             width: 100%;
-            height: auto;
-            border-radius: 10px;
-            transition: transform 0.3s ease-in-out, opacity 0.3s;
+            height: 100vh;
+            object-fit: cover;
+            position: absolute;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
         }
-        .portfolio img:hover {
-            transform: scale(1.05);
-            opacity: 0.8;
+        .carousel img.active {
+            opacity: 1;
         }
         footer {
-            margin-top: 20px;
-            padding: 20px;
+            position: fixed;
+            bottom: 20px;
+            width: 100%;
             font-size: 18px;
-            background-color: #1e1e1e;
+            background-color: transparent;
         }
         a {
             color: #1e90ff;
@@ -74,8 +86,8 @@
         <a href="#portfolio">Portfolio</a>
         <a href="mailto:nishantrathi5290@gmail.com">Contact</a>
     </nav>
-    <section id="portfolio" class="portfolio">
-        <img src="WhatsApp Image 2025-02-03 at 7.00.24 PM.jpeg" alt="Project 1">
+    <section class="carousel">
+        <img src="WhatsApp Image 2025-02-03 at 7.00.24 PM.jpeg" class="active" alt="Project 1">
         <img src="WhatsApp Image 2025-02-03 at 7.01.46 PM (1).jpeg" alt="Project 2">
         <img src="WhatsApp Image 2025-02-03 at 7.07.41 PM.jpeg" alt="Project 3">
         <img src="WhatsApp Image 2025-02-03 at 7.07.42 PM (3).jpeg" alt="Project 4">
@@ -84,5 +96,16 @@
     <footer>
         Contact: <a href="mailto:nishantrathi5290@gmail.com">nishantrathi5290@gmail.com</a>
     </footer>
+    
+    <script>
+        let images = document.querySelectorAll(".carousel img");
+        let index = 0;
+        function changeImage() {
+            images[index].classList.remove("active");
+            index = (index + 1) % images.length;
+            images[index].classList.add("active");
+        }
+        setInterval(changeImage, 3000);
+    </script>
 </body>
 </html>
