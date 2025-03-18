@@ -3,37 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - 3D Lighting Artist</title>
+    <title>Nishant Rathi - 3D Lighting Artist</title>
     <style>
         body {
             background-color: #121212;
             color: #ffffff;
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
             text-align: center;
         }
         header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
             padding: 20px;
-            font-size: 24px;
+            font-size: 28px;
             font-weight: bold;
+            background-color: rgba(30, 30, 30, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+        nav {
+            margin-top: 70px;
+            background-color: transparent;
+            padding: 10px;
+        }
+        nav a {
+            color: #ffffff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #1e90ff;
         }
         .portfolio {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
-            padding: 20px;
+            padding: 80px 20px;
         }
         .portfolio img {
-            width: 300px;
+            width: 100%;
             height: auto;
             border-radius: 10px;
+            transition: transform 0.3s ease-in-out, opacity 0.3s;
+        }
+        .portfolio img:hover {
+            transform: scale(1.05);
+            opacity: 0.8;
         }
         footer {
             margin-top: 20px;
             padding: 20px;
             font-size: 18px;
+            background-color: #1e1e1e;
         }
         a {
             color: #1e90ff;
@@ -42,8 +69,12 @@
     </style>
 </head>
 <body>
-    <header>Your Name - 3D Lighting Artist</header>
-    <section class="portfolio">
+    <header>Nishant Rathi - 3D Lighting Artist</header>
+    <nav>
+        <a href="#portfolio">Portfolio</a>
+        <a href="mailto:nishantrathi5290@gmail.com">Contact</a>
+    </nav>
+    <section id="portfolio" class="portfolio">
         <img src="WhatsApp Image 2025-02-03 at 7.00.24 PM.jpeg" alt="Project 1">
         <img src="WhatsApp Image 2025-02-03 at 7.01.46 PM (1).jpeg" alt="Project 2">
         <img src="WhatsApp Image 2025-02-03 at 7.07.41 PM.jpeg" alt="Project 3">
